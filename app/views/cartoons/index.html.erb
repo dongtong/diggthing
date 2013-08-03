@@ -1,0 +1,93 @@
+<!-- Docs page layout -->
+<div class="bs-header">
+  <div class="container" id="app_carousel">
+      <div class="row">
+<!--         <div class="col-lg-1"></div> -->
+        <div class="col-lg-12">
+          <div class="bs-example">
+    	      <div id="carousel-example-generic" class="carousel slide bs-docs-carousel-example">
+    	        <ol class="carousel-indicators">
+    	          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    	          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    	          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    	        </ol>
+    	        <div class="carousel-inner">
+    	          <div class="item active">
+    	            <%= image_tag '1.jpg', :with=>'500px', :height => '400px'%>
+    	          </div>
+    	          <div class="item">
+    	             <%= image_tag '2.jpg', :with=>'500px', :height => '400px'%>           
+    	          </div>
+    	          <div class="item">
+    	             <%= image_tag '3.jpg', :with=>'500px', :height => '400px'%>           
+    	          </div>
+    	        </div>
+    	        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    	          <span class="icon-prev"></span>
+    	        </a>
+    	        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    	          <span class="icon-next"></span>
+    	        </a>
+    	      </div>
+          </div>
+        </div>
+<!--         <div class="col-lg-1"></div> -->
+      </div>
+	 
+  </div>
+</div>    
+
+<div class="bs-example" id="android_rank"> 
+  <div class="row">
+    <div class="col-lg-1"></div>
+  	<div class="col-lg-8">
+    	<div class="panel panel-rank">
+          <div class="panel-heading">安卓精品推荐</div> 
+          <div class="row app-list">
+            <%@cartoons.each do |cartoon|%>
+            <div class="col-lg-3">
+              <div class="thumbnail">
+                <div class="app-icon">
+                  <%= image_tag cartoon.thumb_pic.url %>
+                </div>      
+                <div class="caption">
+                  <p  class="title"><%= cartoon.title %></p>
+                  <span><%= cartoon.download_number %></span>
+                  <span><%= cartoon.cost_money %></span>
+                  <p> <%= link_to "查看", show_cartoons_path(cartoon.id), :class => 'btn btn=primary btn-mini'%></p>
+                </div>
+              </div>
+            </div>
+            <%end%>
+    	    </div> 
+          
+    	</div>
+    </div> <!--col-lg-9-->   
+    <div class="col-lg-2">
+    	<div class="panel panel-rank">
+    		<div class="panel-heading">漫画下载排行</div> 
+    		<ul class="list-group">
+    		  <li class="list-group-item">
+      			<a href="#" class="active">  
+      			<span class="badge badge-success">1</span>
+      		    QQ欢乐斗地主(完整版)
+      		  </a>
+    		  </li> 
+    		  <li class="list-group-item">
+    		    <a href="#" ><span class="badge badge-success">2</span>二战风云</a>  
+    			</li>
+    		  <li class="list-group-item">
+    		    <a href="#" ><span class="badge badge-success">3</span>战地防御</a>
+    		  </li>
+    		  <li class="list-group-item">
+    		    <a href="#" ><span class="badge">4</span>卡通大战</a> 
+    		  </li>   
+    		  <li class="list-group-item">
+    		    <a href="#" ><span class="badge">5</span>勇者法则</a>  
+    		  </li>
+    		</ul>
+    	</div>
+    </div><!--col-lg-9-->  
+    <div class="col-lg-1"></div> 
+  </div>
+</div>

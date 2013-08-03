@@ -1,0 +1,24 @@
+<div class="bs-example" id="app_detail"> 
+  <div class="row">
+  	<div class="col-lg-12">
+    	<div class="panel panel-rank">
+          	<ul class="breadcrumb">
+			  <li><a href="/">首页</a></li>
+			  <li class="active"><%= @cartoon.title%></li>
+			</ul>
+
+          <div class="row app-list">
+          	<div class="col-lg-3"></div>
+	        <div class="col-lg-6">
+	        	<%= image_tag @cartoon.original_pic.url%>
+	        </div>
+
+	        <div class="col-lg-3">
+	            <a href="#"><%= image_tag 'download_to_desktop.png'%></a>
+	        </div>
+          </div>           
+    	</div>
+    </div> 
+    
+  </div>
+</div>

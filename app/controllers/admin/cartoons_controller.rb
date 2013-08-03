@@ -33,11 +33,7 @@ class Admin::CartoonsController < ApplicationController
 
   def get_cartoons_list
     @cartoons = Cartoon.paginate(:page => params[:page], :per_page => params[:per_page])
-    result = {
-      code: "0",
-      message: "Success",
-      recordCount: @cartoons.size,
-      records: @cartoons.map{|cartoon| {
+    records = @cartoons.map{|cartoon| {
         bookId: cartoon.id,
         title: cartoon.get_title,
         downloadNumber: cartoon.download_number,
@@ -45,7 +41,13 @@ class Admin::CartoonsController < ApplicationController
         costMoney: cartoon.cost_money,
         thumbUrl: "http://#{request.host}#{cartoon.thumb_pic.url}.jpg",
         bookDetail: "http://#{request.host}#{cartoon.original_pic.url}.jpg"
-      }}
+    }}
+
+    result = {
+      code: "0",
+      message: "Success",
+      recordCount: records.size,
+      records: records
     }
     render :json => result.to_json
   end

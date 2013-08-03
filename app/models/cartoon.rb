@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 class Cartoon < ActiveRecord::Base
   extend ScrapWorm
   #attr_accessor :original_file_name
@@ -9,5 +10,11 @@ class Cartoon < ActiveRecord::Base
     scrap({
       url: "http://xiaojiulou.com/sexiaozu/"
     })
+  end
+
+  def get_title
+    return title.split(":")[1] if title.include?(":") 
+    return title.split("：")[1] if title.include?("：") 
+    return title
   end
 end

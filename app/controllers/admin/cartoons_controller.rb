@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 class Admin::CartoonsController < ApplicationController
   before_filter :authenticate_user!, :except => [:get_cartoons_list]
   
@@ -38,7 +39,7 @@ class Admin::CartoonsController < ApplicationController
       recordCount: @cartoons.size,
       records: @cartoons.map{|cartoon| {
         bookId: cartoon.id,
-        title: cartoon.title.include?(':') ? cartoon.title.split(":")[1] : cartoon.title,
+        title: cartoon.get_title,
         downloadNumber: cartoon.download_number,
         bookSize: cartoon.original_pic_file_size,
         costMoney: cartoon.cost_money,

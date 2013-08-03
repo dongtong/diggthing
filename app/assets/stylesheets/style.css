@@ -969,7 +969,7 @@ input.focused {
 }
 
 #android_rank .col-lg-2 {
-  padding 0 10px;
+  padding: 0 10px;
 }
 #android_rank .thumbnail {
   text-align: center;

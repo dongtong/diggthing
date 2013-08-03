@@ -31,7 +31,7 @@ class Admin::CartoonsController < ApplicationController
   end
 
   def get_cartoons_list
-    @cartoons = Cartoon.all
+    @cartoons = Cartoon.paginate(:page => params[:page], :per_page => params[:per_page])
     result = {
       code: "0",
       message: "Success",

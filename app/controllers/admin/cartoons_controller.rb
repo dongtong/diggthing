@@ -37,6 +37,7 @@ class Admin::CartoonsController < ApplicationController
       message: "Success",
       recordCount: @cartoons.size,
       records: @cartoons.map{|cartoon| {
+        bookId: id,
         title: cartoon.title,
         downloadNumber: cartoon.download_number,
         bookSize: cartoon.original_pic_file_size,

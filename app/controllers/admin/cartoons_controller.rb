@@ -38,7 +38,7 @@ class Admin::CartoonsController < ApplicationController
       recordCount: @cartoons.size,
       records: @cartoons.map{|cartoon| {
         bookId: id,
-        title: cartoon.title,
+        title: cartoon.title.split(":")[1],
         downloadNumber: cartoon.download_number,
         bookSize: cartoon.original_pic_file_size,
         costMoney: cartoon.cost_money,

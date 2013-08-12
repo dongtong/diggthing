@@ -1,8 +1,12 @@
 //= require jquery-min
+//= require jquery-migrate-1.2.1
 //= require jquery_ujs   
 //= require bootstrap.min
-//= require admin/backend                
+//= require admin/backend   
+//= require gotoTop             
 $(function(){
+	// $('<a href="javascript:;" class="backToTop" title="返回顶部">返回顶部</a>').appendTo("body");
+
 	$('.bs-docs-carousel-example').carousel();
 
 	$('button.import').click(function(e){
@@ -19,6 +23,15 @@ $(function(){
 			cartoon_record.html(responseText)
 		});
 		return false;
-	})
+	});
+
+	$(".backToTop").goToTop();
+	$(window).bind('scroll resize',function(){
+		$(".backToTop").goToTop({
+			pageWidth:1040,
+			duration:0
+		});
+	});
+	
 });
 

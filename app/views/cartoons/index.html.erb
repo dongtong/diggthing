@@ -1,9 +1,8 @@
 <!-- Docs page layout -->
-<div class="bs-header">
-  <div class="container" id="app_carousel">
+<!-- <div class="bs-header" id="top_slider">
       <div class="row">
-<!--         <div class="col-lg-1"></div> -->
-        <div class="col-lg-12">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10">
           <div class="bs-example">
     	      <div id="carousel-example-generic" class="carousel slide bs-docs-carousel-example">
     	        <ol class="carousel-indicators">
@@ -12,15 +11,11 @@
     	          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
     	        </ol>
     	        <div class="carousel-inner">
-    	          <div class="item active">
-    	            <%= image_tag '1.jpg', :with=>'500px', :height => '400px'%>
-    	          </div>
-    	          <div class="item">
-    	             <%= image_tag '2.jpg', :with=>'500px', :height => '400px'%>           
-    	          </div>
-    	          <div class="item">
-    	             <%= image_tag '3.jpg', :with=>'500px', :height => '400px'%>           
-    	          </div>
+                <% Cartoon.order("download_number desc")[0..2].each_with_index do |cartoon, index|%>
+                  <div class="item <%= "active" if index == 0%>">
+                   <%= image_tag cartoon.thumb_pic.url, :with=>'500px', :height => '400px'%>           
+                  </div>
+                <%end%>
     	        </div>
     	        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
     	          <span class="icon-prev"></span>
@@ -31,60 +26,63 @@
     	      </div>
           </div>
         </div>
-<!--         <div class="col-lg-1"></div> -->
+        <div class="col-lg-1"></div>
       </div>
-	 
-  </div>
-</div>    
+</div>     -->
 
-<div class="bs-example" id="android_rank"> 
+<div class="bs-example" id="cartoon_rank"> 
+  <div class='row notice'>
+   <div class="col-lg-1"></div>
+  <div class="col-lg-10">
+    <% if flash[:notice]%>
+      <div class="row alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><%= flash[:notice] %></div>
+    <%end %>
+  </div>
+   <div class="col-lg-1"></div>
+</div>
   <div class="row">
     <div class="col-lg-1"></div>
   	<div class="col-lg-8">
     	<div class="panel panel-rank">
-          <div class="panel-heading">安卓精品推荐</div> 
-          <div class="row app-list">
-            <%@cartoons.each do |cartoon|%>
-            <div class="col-lg-3">
-              <div class="thumbnail">
-                <div class="app-icon">
-                  <%= image_tag cartoon.thumb_pic.url %>
-                </div>      
-                <div class="caption">
-                  <p  class="title"><%= cartoon.title %></p>
-                  <span><%= cartoon.download_number %></span>
-                  <span><%= cartoon.cost_money %></span>
-                  <p> <%= link_to "查看", show_cartoons_path(cartoon.id), :class => 'btn btn=primary btn-mini'%></p>
+          <div class="panel-heading"><%= @title%></div> 
+          <%@cartoons.in_groups_of(4).each do |cartoon_group|%>
+            <div class="row app-list">
+              <%cartoon_group.compact.each do |cartoon|%>
+                <div class="col-lg-3">
+                  <div class="thumbnail">
+                    <div class="app-icon">
+                      <%= link_to (image_tag cartoon.thumb_pic.url),   show_cartoons_path(@curr_nav, cartoon.id) %>
+                    </div>      
+                    <div class="caption">
+                      <div class="row cartoon-info">
+                        <div class="col-lg-12 cartoon-title"><p class="title"><%= cartoon.get_title %></p></div>
+                      </div>
+                      <div class="row cartoon-card">
+                        <div class="col-lg-6 cartoon-info">
+                          <span class="download-times"><%= display_icon 'download_number', :style=>"width: 16px; height:16px;"%><%= cartoon.download_number %></span>
+                        </div>
+                        <div class="col-lg-6 cartoon-info"><%= link_to "查看", show_cartoons_path(@curr_nav, cartoon.id), :class => 'btn btn-info btn-mini'%></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <%end%>
-    	    </div> 
-          
+              <%end%>
+      	    </div> 
+          <%end%>
     	</div>
     </div> <!--col-lg-9-->   
     <div class="col-lg-2">
     	<div class="panel panel-rank">
     		<div class="panel-heading">漫画下载排行</div> 
     		<ul class="list-group">
-    		  <li class="list-group-item">
-      			<a href="#" class="active">  
-      			<span class="badge badge-success">1</span>
-      		    QQ欢乐斗地主(完整版)
-      		  </a>
-    		  </li> 
-    		  <li class="list-group-item">
-    		    <a href="#" ><span class="badge badge-success">2</span>二战风云</a>  
-    			</li>
-    		  <li class="list-group-item">
-    		    <a href="#" ><span class="badge badge-success">3</span>战地防御</a>
-    		  </li>
-    		  <li class="list-group-item">
-    		    <a href="#" ><span class="badge">4</span>卡通大战</a> 
-    		  </li>   
-    		  <li class="list-group-item">
-    		    <a href="#" ><span class="badge">5</span>勇者法则</a>  
-    		  </li>
+          <%Cartoon.order("download_number desc").each_with_index do |cartoon, index|%>
+            <li class="list-group-item">
+              <span class="badge <%= "badge-success" if index <= 2 %>"><%= index + 1%></span>
+              <%=link_to show_cartoons_path(@curr_nav, cartoon.id) do %>
+                <%= cartoon.get_title%>
+              <%end%>
+            </li>
+          <%end%>
     		</ul>
     	</div>
     </div><!--col-lg-9-->  

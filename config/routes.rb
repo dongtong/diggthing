@@ -3,16 +3,20 @@ ConnotiveCartoon::Application.routes.draw do
 
   root :to => 'cartoons#index'
   get "cartoons/index"
-  match "cartoons/show/:id" => "cartoons#show", :as => :show_cartoons, :via => :get
-  
+  match "cartoons/:nav/show/:id" => "cartoons#show", :as => :show_cartoons, :via => :get
+  match "cartoons/download/:id" => "cartoons#download", :as => :download_cartoon, :via => :get
+  match "cartoons/hot" => "cartoons#get_hot", :as => :get_hot_cartoons, :via => :get
+  match "cartoons/lastest" => "cartoons#get_lastest"
+
   namespace :admin do 
+    get "cartoons/index"
     get "cartoons/list"
     get "cartoons/new"
     get "cartoons/show"
     get "cartoons/create"
     get "cartoons/edit"
     get "cartoons/update"
-    get "cartoons/destroy"
+    match "cartoons/destroy/:id" => "cartoons#destroy", :as => :destroy_cartoon, :via => :delete
     post "cartoons/import"
     post "cartoons/get_cartoons_list"
   end

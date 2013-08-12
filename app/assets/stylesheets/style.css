@@ -54,7 +54,7 @@ body {
 .bs-docs-nav .navbar-nav > .active > a,
 .bs-docs-nav .navbar-nav > .active > a:hover {
   color: #fff;
-  background-color: #463265;
+  background-color: #3b5998;
 }
 .bs-docs-nav .navbar-toggle {
   border-color: #0088cc;
@@ -165,7 +165,7 @@ body {
   color: #5a5a5a;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-  background: #eeeeee;
+  background: #fafafa;
 }
 .bs-header h1 {
   color: #0088cc;
@@ -343,7 +343,7 @@ body {
 }
 /* Echo out a label for the example */
 .bs-example:after {
-  content: "应用展示";
+  content: "";
   position: absolute;
   top:  15px;
   left: 15px;
@@ -773,7 +773,7 @@ input.focused {
   .bs-example {
     margin-left: 0;
     margin-right: 0;
-    background-color: #fff;
+    background-color: #fafafa;
     border-width: 1px;
     border-color: #ddd;
     border-radius: 4px 4px 0 0;
@@ -935,7 +935,7 @@ input.focused {
   text-align: center;
 }
 
-#android_rank .list-group-item {
+#cartoon_rank .list-group-item {
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -959,51 +959,51 @@ input.focused {
 
 
 
-#android_rank .panel-rank {
+#cartoon_rank .panel-rank {
   border-color: #0088cc;
 }
 
-#android_rank .panel-rank .panel-heading {
+#cartoon_rank .panel-rank .panel-heading {
     color: #fff;
   background-color: #0088cc;
 }
 
-#android_rank .col-lg-2 {
+#cartoon_rank .col-lg-2 {
   padding: 0 10px;
 }
-#android_rank .thumbnail {
-  text-align: center;
+#cartoon_rank .thumbnail {
+  text-align: left;
 }
 
-#android_rank .thumbnail p {
+#cartoon_rank .thumbnail p {
   font-size: 9pt;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-#android_rank .thumbnail .caption {
+#cartoon_rank .thumbnail .caption {
   padding: 0 0;
 }
 
-#android_rank .app-list {
+#cartoon_rank .app-list {
   border-bottom: 1px dashed #0088cc;
   margin-bottom: 15px;
   padding-bottom: 15px;
 }
 
-#android_rank .last-row {
+#cartoon_rank .last-row {
   border-bottom: none;
 }
 
-#android_rank .app-icon {
+#cartoon_rank .app-icon {
   margin: 0 auto;
 }
-#android_rank .app-icon img {
+#cartoon_rank .app-icon img {
   width: 100%;
   height: 164px;
 }
 
-#android_rank .panel-rank .badge-success {
+#cartoon_rank .panel-rank .badge-success {
   background: #5cb85c;
 }
 
@@ -1026,4 +1026,88 @@ input.focused {
   border-top: 1px dashed #0088cc;
   padding-top: 15px;
 }
+/*Go to Top*/
+a.backToTop{
+  width:60px; 
+  height:60px; 
+  background:url(/assets/top.gif) no-repeat -51px 0; 
+  text-indent:-999em;
+} 
 
+a.backToTop:hover{
+  background-position:-113px 0;
+} 
+
+/*Cartoon Overview*/
+#cartoon_rank .notice {
+  margin: 0;
+}
+#top_slider .col-lg-10 {
+  padding-left: 28px;
+  padding-right: 22px;
+}
+#cartoon_rank .thumbnail {
+  background: #f7f7f7;
+}
+#cartoon_rank .thumbnail .cartoon-card {
+  background-color: #eeeeee;
+  margin-left: -4px;
+  margin-right: -4px;
+  margin-bottom: -4px;
+}
+#cartoon_rank .cartoon-title {
+  height: 34px;
+  margin-bottom: 8px;
+}
+#cartoon_rank .cartoon-card {
+  margin-left: 0;
+  margin-right: 0;
+  border-top: 1px dotted #979797;
+}
+#cartoon_rank .cartoon-info {
+  padding: 0;
+}
+#cartoon_rank .cartoon-info:first-child {
+  padding-top: 4px;
+}
+#cartoon_rank .cartoon-info:last-child {
+  padding: 4px;
+}
+#cartoon_rank .cartoon-info:last-child a{
+  float: right;
+}
+#cartoon_rank .cartoon-info .download-times {
+  padding: 3px 5px;
+}
+
+#cartoon_rank .panel-rank .list-group-item span {
+  float: left;
+  margin-right: 5px;
+}
+
+/*Download*/
+#download_link {
+    position:fixed;
+    z-index:200;
+    bottom:100;
+    left: 960px;
+    width:150px;
+    height:auto;
+    padding: 0;
+    min-height:30px;
+    background-color:rgb(255,255,255);
+    border-right:1px rgb(235,235,235) solid;
+    border-left:1px rgb(235,235,235) solid;
+}
+
+/*Login*/
+#login .panel-heading {
+  background-color: #0088cc;
+}
+#login .panel-heading .panel-title {
+  color: #FFFFFF;
+}
+
+#login input[type="submit"] {
+  margin-top: 20px;
+}

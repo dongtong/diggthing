@@ -4,7 +4,7 @@
     	<div class="panel panel-rank">
           	<ul class="breadcrumb">
 			  <li><a href="/">首页</a></li>
-			  <li class="active"><%= @cartoon.title%></li>
+			  <li class="active"><%= @cartoon.get_title%></li>
 			</ul>
 
           <div class="row app-list">
@@ -13,8 +13,8 @@
 	        	<%= image_tag @cartoon.original_pic.url%>
 	        </div>
 
-	        <div class="col-lg-3">
-	            <a href="#"><%= image_tag 'download_to_desktop.png'%></a>
+	        <div class="col-lg-3" id="download_link">
+              <%= link_to (image_tag 'download_button.png'), download_cartoon_path(@cartoon)%>
 	        </div>
           </div>           
     	</div>

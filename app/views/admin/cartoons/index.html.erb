@@ -1,0 +1,41 @@
+<div class="bs-example" id="android_rank"> 
+  <div class="row">
+    <div class="col-lg-1"></div>
+  	<div class="col-lg-10">
+    	<div class="panel panel-rank">
+          	<div class="panel-heading">漫画一览</div> 
+
+          	<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>缩略图</th>
+		            <th>标题</th>
+		            <th>初始下载数</th>
+		            <th>下载次数</th>
+		            <th>浏览次数</th>
+		            <th>操作</th>
+		          </tr>
+		        </thead>
+
+		        <tbody>
+		        <%@cartoons.each do |cartoon|%>
+		          <tr>
+		            <td><%= image_tag cartoon.thumb_pic.url(:thumb)%></td>
+		            <td><%= cartoon.title%></td>
+		            <td><%= cartoon.download_number %></td>
+		            <td><%= cartoon.download_times %></td>
+		            <td><%= cartoon.show_times %></td>
+		            <td>
+		            	<%= link_to_icon "edit", "#"%>
+		            	<%= link_to_icon "delete", admin_destroy_cartoon_path(cartoon), method: :delete, data: { confirm: '确定删除吗?' }%>
+		            </td>
+		          </tr>
+		        <%end%>
+		        </tbody>
+		    </table>
+
+        </div> <!--panel-->
+    </div>
+    <div class="col-lg-1"></div> 
+  </div>
+</div>

@@ -1,0 +1,8 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh:
+  cartoons:
+    all_cartoon_title: "漫画一览"
+    hot_cartoon_title: "热门漫画"
+    lastest_cartoon_title: "最新漫画"

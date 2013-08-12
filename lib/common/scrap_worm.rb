@@ -65,7 +65,7 @@ module ScrapWorm
       cartoon_tmp = CartoonTmp.find(cartoon_tmp_id)
       cartoon = Cartoon.create({
         title: cartoon_tmp.title,
-        download_number: (20000..100000).to_a.sample,
+        download_number: (10000..20000).to_a.sample,
         cost_money: (15..20).to_a.sample,
         thumb_pic: open(cartoon_tmp.thumb_pic_url),
         original_pic: open(cartoon_tmp.details_url)

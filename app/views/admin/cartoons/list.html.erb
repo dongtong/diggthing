@@ -1,44 +1,5 @@
-<div class="bs-example" id="android_rank"> 
+<div class="bs-example" id="cartoon_res"> 
   <div class="row">
-    <div class="col-lg-1"></div>
-  	<div class="col-lg-8">
-    	<div class="panel panel-rank">
-          	<div class="panel-heading">色小组漫画</div> 
-          	<div class="row app-list">
-	            <div class="col-lg-3">
-	              <p>标题</p>
-	            </div>
-	            <div class="col-lg-7">
-	              <p>缩略图</p>
-	            </div>
-	            <div class="col-lg-1">
-	              <p>状态</p>
-	            </div>
-	            <div class="col-lg-1">
-	              <p>操作</p>
-	            </div>
-    	  	</div> 
-
-          	<%@cartoons.each do |cartoon|%>
-          		<div class="row app-list last-row">
-	          		<%= hidden_field_tag 'thumb', cartoon.thumb_pic_url%>
-					<%= hidden_field_tag "cartoon_tmp_#{cartoon.id}", cartoon.id, :class => 'cartoon_tmp_id'%>
-		            <div class="col-lg-3">
-		              <p><%= cartoon.title%></p>
-		            </div>
-		            <div class="col-lg-7">
-		              <p><%= cartoon.thumb_pic_url%></p>
-		            </div>
-		            <div class="col-lg-1">
-		              <p><%= cartoon.scraped %></p>
-		            </div>
-		            <div class="col-lg-1">
-		              <button type="button" class="btn btn-primary import">导入</button>
-		            </div>
-	    	  	</div> 
-			<%end%>
-        </div> <!--panel-->
-    </div> <!--col-lg-8-->   
     <div class="col-lg-2">
     	<div class="panel panel-rank">
     		<div class="panel-heading">漫画资源</div> 
@@ -51,6 +12,35 @@
     		</ul>
     	</div>
     </div><!--col-lg-9-->  
+  	<div class="col-lg-9">
+    	<div class="panel panel-rank">
+          	<div class="panel-heading">漫画抓取资源</div> 
+
+          	<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>缩略图</th>
+		            <th>标题</th>
+		            <th>状态</th>
+		            <th>操作</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        <%@cartoons.each do |cartoon|%>
+		          <tr>
+		            <td><%= cartoon.thumb_pic_url%></td>
+		            <td><%= cartoon.title%></td>
+		            <td><%= cartoon.scraped ? display_icon('right') : display_icon('error') %></td>
+		            <td>
+		            	<%= link_to_icon "download_cartoon", "#", :class => "import", "data-params"=>"{\"cartoon_tmp_id\":#{cartoon.id}}"%>
+		            </td>
+		          </tr>
+		        <%end%>
+		        </tbody>
+		    </table>
+
+        </div> <!--panel-->
+    </div>
     <div class="col-lg-1"></div> 
   </div>
 </div>

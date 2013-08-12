@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130802053022) do
+ActiveRecord::Schema.define(:version => 20130810154235) do
 
   create_table "cartoon_tmps", :force => true do |t|
     t.string   "title"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20130802053022) do
     t.string   "original_pic_content_type"
     t.integer  "original_pic_file_size"
     t.datetime "original_pic_updated_at"
+    t.integer  "show_times"
+    t.integer  "download_times"
   end
 
   create_table "users", :force => true do |t|

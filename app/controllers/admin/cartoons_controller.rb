@@ -1,9 +1,15 @@
 #-*- coding: utf-8 -*-
-class Admin::CartoonsController < ApplicationController
+class Admin::CartoonsController < AdminController
   before_filter :authenticate_user!, :except => [:get_cartoons_list]
   
   def list
+    @curr_nav = "cartoons_scraped"
     @cartoons = CartoonTmp.all.blank? ? Cartoon.scrap_and_create_cartoons : CartoonTmp.all 
+  end
+
+  def index
+    @curr_nav = "cartoons"
+    @cartoons = Cartoon.all
   end
 
   def new
@@ -22,13 +28,18 @@ class Admin::CartoonsController < ApplicationController
   end
 
   def destroy
+    @cartoon = Cartoon.find(params[:id])
+    @cartoon.destroy
+    redirect_to admin_cartoons_index_url
   end
 
   def import
     result = save_sexiaozu(params[:cartoon_tmp_id])
-    #SexiaozuWorker.perform_async(params[:cartoon_tmp_id])
-    #SexiaozuWorker.perform_in(10., params[:cartoon_tmp_id])
-    render :text => "waiting..."
+    if result
+      render json: {state: :success}.to_json
+    else
+      render json: {state: :failed}.to_json
+    end
   end
 
   def get_cartoons_list

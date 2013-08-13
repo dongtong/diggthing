@@ -24,8 +24,4 @@ class Cartoon < ActiveRecord::Base
       url: 'http://xiaojiulou.com/sexiaozu/index.html'
     })
   end
-
-  def get_title
-    title.split(/[:：]/)[1]
-  end
 end

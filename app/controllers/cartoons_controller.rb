@@ -16,9 +16,10 @@ class CartoonsController < ApplicationController
   	begin
   		@cartoon.download_number += 1
   		@cartoon.save
-  		send_file("#{Rails.root}/public#{@cartoon.original_pic.url.split('?')[0]}", filename: @cartoon.get_title,
+  		send_file("#{Rails.root}/public#{@cartoon.original_pic.url.split('?')[0]}", filename: @cartoon.title,
   	          type: @cartoon.original_pic_content_type, :disposition => :attachment)
   	rescue => ex
+      puts "**** #{ex.inspect}"
   		flash[:notice] = "图片不存在"
     	redirect_to root_path
   	end

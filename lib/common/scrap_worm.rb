@@ -65,7 +65,11 @@ module ScrapWorm
    end
 
    def generate_title(title)
-    title.split(/[:：]/)[1]
+    if title.include?(':') || title.include?('：')
+      title.split(/[:：]/)[1] 
+    else
+      title
+    end
    end
 
    def save_sexiaozu(cartoon_tmp_id)

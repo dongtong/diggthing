@@ -55,7 +55,7 @@
                     </div>      
                     <div class="caption">
                       <div class="row cartoon-info">
-                        <div class="col-lg-12 cartoon-title"><p class="title"><%= cartoon.get_title %></p></div>
+                        <div class="col-lg-12 cartoon-title"><p class="title"><%= cartoon.title %></p></div>
                       </div>
                       <div class="row cartoon-card">
                         <div class="col-lg-6 cartoon-info">
@@ -79,7 +79,7 @@
             <li class="list-group-item">
               <span class="badge <%= "badge-success" if index <= 2 %>"><%= index + 1%></span>
               <%=link_to show_cartoons_path(@curr_nav, cartoon.id) do %>
-                <%= cartoon.get_title%>
+                <%= cartoon.title%>
               <%end%>
             </li>
           <%end%>

@@ -4,7 +4,7 @@ class Admin::CartoonsController < AdminController
   
   def list
     @curr_nav = "cartoons_scraped"
-    @cartoons = CartoonTmp.all #CartoonTmp.all.blank? ? Cartoon.scrap_and_create_cartoons : CartoonTmp.all 
+    @cartoons = CartoonTmp.all
   end
 
   def index
@@ -46,7 +46,7 @@ class Admin::CartoonsController < AdminController
     @cartoons = Cartoon.paginate(:page => params[:page], :per_page => params[:per_page])
     records = @cartoons.map{|cartoon| {
         bookId: cartoon.id,
-        title: cartoon.get_title,
+        title: cartoon.title,
         downloadNumber: cartoon.download_number,
         bookSize: cartoon.original_pic_file_size,
         costMoney: cartoon.cost_money,

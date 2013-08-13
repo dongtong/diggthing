@@ -1,4 +1,5 @@
 ConnotiveCartoon::Application.routes.draw do
+
   devise_for :users
 
   root :to => 'cartoons#index'
@@ -19,6 +20,14 @@ ConnotiveCartoon::Application.routes.draw do
     match "cartoons/destroy/:id" => "cartoons#destroy", :as => :destroy_cartoon, :via => :delete
     post "cartoons/import"
     post "cartoons/get_cartoons_list"
+
+    get "scrap_sources/list"
+    get "scrap_sources/new"
+    match "scrap_sources/show/:id" => "scrap_sources#show", :as => :show_scrap_source, :via => :get
+    match "scrap_sources/create" => "scrap_sources#create", :as => :create_scrap_source, :via => :post
+    match "scrap_sources/edit/:id" => "scrap_sources#edit", :as => :edit_scrap_source, :via => :get
+    match "scrap_sources/update/:id" => "scrap_sources#update", :as => :update_scrap_source, :via => :put
+    match "scrap_sources/destroy/:id" => "scrap_sources#destroy", :as => :destroy_scrap_source, :via => :delete
   end
   
 

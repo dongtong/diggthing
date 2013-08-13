@@ -1,0 +1,45 @@
+<div class="row app-list">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>添加数据源</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span><%= link_to "返回", admin_scrap_sources_list_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+			          
+			<div class="row app-list">
+			    <%= form_for(@scrap_source, :url => admin_create_scrap_source_path, :html => {:class => "form-horizontal"}) do |f| %>
+
+					<div class="form-group">
+						<label for="name" class="col-lg-2 control-label">名称</label>
+						<div class="col-lg-10">
+						<%= f.text_field :name, :autofocus => true,  :class => "form-control", :placeholder => "名称" %>
+						</div>
+
+						<label for="url" class="col-lg-2 control-label">地址</label>
+						<div class="col-lg-10">
+						<%= f.text_field :src_url, :class => "form-control", :placeholder => "地址" %>
+						</div>
+
+						<label for="url" class="col-lg-2 control-label">当前页码</label>
+						<div class="col-lg-10">
+						<%= f.text_field :curr_page, :class => "form-control", :placeholder => "当前页码" %>
+						</div>
+
+						<label for="url" class="col-lg-2 control-label">总页码</label>
+						<div class="col-lg-10">
+						<%= f.text_field :total_pages, :class => "form-control", :placeholder => "总页码" %>
+						<%= f.submit "添加", :class => "btn btn-primary", :id => "add_source"%>
+						</div>
+					</div>	
+				<% end %>
+			</div> 
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>

@@ -1,3 +1,16 @@
 #cartoon_res table tbody tr td:first-child {
 	width: 300px;
 }
+
+.panel-action {
+  color: #333;
+  background-color: #eeeeee;
+  padding: 10px 15px;
+  margin: -15px -15px 15px;
+  border-bottom: 1px solid #ddd;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.panel-action .navbar {
+  min-height: auto;
+}

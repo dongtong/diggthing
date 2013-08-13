@@ -40,6 +40,9 @@
 	        <li class="<%= "active" if @curr_nav == "cartoons"%>">
 	          <a href="/admin/cartoons/index">漫画管理</a>
 	        </li>
+	        <li class="<%= "active" if @curr_nav == "scrap_source"%>">
+	          <a href="/admin/scrap_sources/list">抓取源</a>
+	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav pull-right">
 	      	<% if user_signed_in? %>

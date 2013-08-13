@@ -32,7 +32,11 @@
 		            <td><%= cartoon.title%></td>
 		            <td><%= cartoon.scraped ? display_icon('right') : display_icon('error') %></td>
 		            <td>
-		            	<%= link_to_icon "download_cartoon", "#", :class => "import", "data-params"=>"{\"cartoon_tmp_id\":#{cartoon.id}}"%>
+		            	<% if cartoon.scraped%>
+		            		<%= display_icon 'sta_disabled'%>
+		            	<%else%>
+		            		<%= link_to_icon "download_cartoon", "#", :class => "import", "data-params"=>"{\"cartoon_tmp_id\":#{cartoon.id}}"%>
+		            	<%end%>
 		            </td>
 		          </tr>
 		        <%end%>

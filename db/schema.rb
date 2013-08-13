@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810154235) do
+ActiveRecord::Schema.define(:version => 20130813124715) do
 
   create_table "cartoon_tmps", :force => true do |t|
     t.string   "title"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20130810154235) do
     t.boolean  "scraped"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "scrap_page"
   end
 
   create_table "cartoons", :force => true do |t|
@@ -39,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20130810154235) do
     t.datetime "original_pic_updated_at"
     t.integer  "show_times"
     t.integer  "download_times"
+    t.integer  "page_in"
+  end
+
+  create_table "scrap_sources", :force => true do |t|
+    t.string   "name"
+    t.string   "src_url"
+    t.integer  "total_pages"
+    t.integer  "curr_page"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

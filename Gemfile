@@ -11,6 +11,7 @@ gem 'paperclip', '3.4.1'
 gem 'nokogiri'
 gem 'will_paginate'
 gem 'thin'
+gem 'whenever', require: false
 
 
 

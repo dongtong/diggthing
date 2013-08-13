@@ -1,0 +1,43 @@
+<div class="bs-example" id="cartoon_res"> 
+  <div class="row">
+    <div class="col-lg-1"></div><!--col-lg-9-->  
+  	<div class="col-lg-10">
+    	<div class="panel panel-rank">
+          	<div class="panel-heading">漫画抓取资源</div> 
+          	<div class="panel-action">
+			    <div class="navbar">
+					<span class="pull-right"><%= link_to_icon "add", admin_scrap_sources_new_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+          	<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>资源名</th>
+		            <th>地址</th>
+		            <th>当前页码</th>
+		            <th>总页码</th>
+		            <th></th>
+		            <th></th>
+		            <th></th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        <%@scrap_sources.each do |source|%>
+		          <tr>
+		            <td><%= source.name%></td>
+		            <td><%= source.src_url%></td>
+		            <td><%= source.curr_page%></td>
+		            <td><%= source.total_pages%></td>
+		            <td><%= link_to_icon 'show', '#'%></td>
+		            <td><%= link_to_icon 'edit', admin_edit_scrap_source_path(source)%></td>
+		            <td><%= link_to_icon "delete", admin_destroy_scrap_source_path(source), method: :delete, data: { confirm: '确定删除吗?' }%></td>
+		          </tr>
+		        <%end%>
+		        </tbody>
+		    </table>
+
+        </div> <!--panel-->
+    </div>
+    <div class="col-lg-1"></div> 
+  </div>
+</div>

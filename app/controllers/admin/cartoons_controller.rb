@@ -4,7 +4,7 @@ class Admin::CartoonsController < AdminController
   
   def list
     @curr_nav = "cartoons_scraped"
-    @cartoons = CartoonTmp.all.blank? ? Cartoon.scrap_and_create_cartoons : CartoonTmp.all 
+    @cartoons = CartoonTmp.all #CartoonTmp.all.blank? ? Cartoon.scrap_and_create_cartoons : CartoonTmp.all 
   end
 
   def index

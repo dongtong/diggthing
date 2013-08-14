@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813124715) do
+ActiveRecord::Schema.define(:version => 20130814091812) do
 
   create_table "cartoon_tmps", :force => true do |t|
     t.string   "title"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20130813124715) do
     t.integer  "page_in"
   end
 
+  create_table "comments", :force => true do |t|
+    t.integer  "cartoon_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "scrap_sources", :force => true do |t|
     t.string   "name"
     t.string   "src_url"
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20130813124715) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "username"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

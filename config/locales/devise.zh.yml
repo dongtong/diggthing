@@ -1,3 +1,5 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
 zh:
   devise:
     confirmations:
@@ -32,12 +34,12 @@ zh:
       updated_not_active: "Your password was changed successfully."
     registrations:
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
-      signed_up: "欢迎,您已经注册成功!"
+      signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
-      updated: "您已经成功更新账户."
+      updated: "You updated your account successfully."
     sessions:
       signed_in: "登录成功!"
       signed_out: "退出成功!"
@@ -55,11 +57,3 @@ zh:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-
-  cartoons:
-    all_cartoon_title: "漫画一览"
-    hot_cartoon_title: "热门漫画"
-    lastest_cartoon_title: "最新漫画"
-    detail:
-      pre: "上一页"
-      next: "下一页"

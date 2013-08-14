@@ -47,7 +47,11 @@
 	      <ul class="nav navbar-nav pull-right">
 	      	<% if user_signed_in? %>
 	      	  <li>
-	          	<a href="/admin/cartoons/list">管理</a>
+	      	  	<%if current_user.try(:admin?)%>
+	          		<a href="/admin/cartoons/list">管理</a>
+	          	<%else%>
+	          		<%= link_to current_user.username, show_user_path(current_user.username)%>
+	          	<%end%>
 	          </li>
 			  <li>
 			  <%= link_to('退出', destroy_user_session_path, :method => :delete) %>        
@@ -55,6 +59,9 @@
 			<% else %>
 			  <li>
 			  <%= link_to('登录', new_user_session_path)  %>  
+			  </li>
+			  <li>
+			  <%= link_to('注册', new_user_registration_path)  %>  
 			  </li>
 			<% end %>
 	      </ul>

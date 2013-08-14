@@ -2,6 +2,16 @@ class ApplicationController < ActionController::Base
   include ScrapWorm
   protect_from_forgery
 
+  private
+
+  def after_sign_in_path_for(resource_or_scope)
+  	root_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+  	root_path
+  end
+
   #around_filter :retry_on_timeout
  #  rescue_from Exception, :with => :retry_on_timeout
 

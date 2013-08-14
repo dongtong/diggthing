@@ -1,5 +1,13 @@
 ConnotiveCartoon::Application.routes.draw do
 
+  match "user/:username" => "user#show", :as => :show_user, :via => :get
+
+  get "user/edit"
+
+  get "user/update"
+
+  post "comments/create"
+
   devise_for :users
 
   root :to => 'cartoons#index'

@@ -15,6 +15,8 @@ class Cartoon < ActiveRecord::Base
                     :url => "/originals/:id/:basename.:extension",
                     :path => ":rails_root/public/originals/:id/:basename.:extension"  
 
+  has_many :comments, dependent: :destroy
+
 
   scope :lastest_cartoons, lambda {where("created_at > ?", 2.days.ago)}
   

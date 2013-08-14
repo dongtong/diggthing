@@ -1,0 +1,43 @@
+<div class="bs-example" id="user_detail"> 
+  <div class="row">
+  	<div class="col-lg-12">
+        <div class="row">
+          	<div class="col-lg-1"></div>
+  	        <div class="col-lg-10 user-profile">
+  	        	<div class="row panel panel-rank">
+              		<div class="col-lg-2 logo"><%= display_icon 'user'%></div>
+                  <div class="col-lg-8 logo">
+                    <ul class="list-group">
+                      <li class="list-group-item"><%= current_user.username%></li>
+                      <li class="list-group-item"><%= current_user.email%></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-2 logo"><%= link_to (image_tag('edit_big.png')), '#'%></div>
+              </div>
+  	        </div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10" id="user_comments_list">
+              <div class="row">
+                <div class="col-lg-10" id="user_comments">
+                  <% current_user.comments.each do |comment|%>
+                    <div class="panel">
+                      <div class="comment-header">
+                        <h5><%= comment.user.username%>说:</h5>
+                      </div>
+                      <div class="comment-body">
+                        <%= comment.content%>
+                      </div>
+                    </div>
+                  <%end%>
+                </div>
+                <div class="col-lg-2"></div>
+              </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div> 
+    </div>
+  </div>
+</div>

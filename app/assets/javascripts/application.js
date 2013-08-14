@@ -3,7 +3,9 @@
 //= require jquery_ujs   
 //= require bootstrap.min
 //= require admin/backend   
-//= require gotoTop             
+//= require gotoTop
+//= require mustache
+
 $(function(){
 	// $('<a href="javascript:;" class="backToTop" title="返回顶部">返回顶部</a>').appendTo("body");
 
@@ -32,6 +34,29 @@ $(function(){
 			duration:0
 		});
 	});
+
+	var comment_tmpl = '<div class="panel"><div class="comment-header"><h5>{{username}}说:</h5></div><div class="comment-body">{{content}}</div></div>';
+
+	$('#add_comment').click(function(e){
+		e.preventDefault();
+		var form = $(this).parent();
+	    $.ajax({
+	        url: form.attr('action'),
+	        data: form.serialize(),
+	        method: 'POST', 
+	        dataType: 'json'
+	    }).done(function(data, textStatus, jqXHR){
+	       if (data.state === 'failed') {
+	       	  alert(data.msg)
+	       }else{
+	         $('#comments_list').append(Mustache.render(comment_tmpl, data.msg));
+	         $('#comment_content').val("");
+	       }
+	    }).fail(function(data, textStatus, jqXHR){
+	       alert("添加评论失败!")
+	    });
+		return false
+	})
 	
 });
 

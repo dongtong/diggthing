@@ -17,7 +17,6 @@ module ScrapWorm
       if sexiaozu.total_pages.nil? || sexiaozu.curr_page <= sexiaozu.total_pages
         curr_scrap_page = sexiaozu.curr_page
         if sexiaozu.curr_page.nil? || sexiaozu.curr_page == 1
-          puts "11111"
           #the first page
           page = Nokogiri::HTML(open(sexiaozu.src_url))
           sexiaozu.curr_page = 2

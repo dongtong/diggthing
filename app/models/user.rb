@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :comments, dependent: :destroy
   attr_accessor :login
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,

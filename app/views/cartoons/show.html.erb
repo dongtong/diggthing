@@ -1,21 +1,40 @@
-<div class="bs-example" id="app_detail"> 
+<div class="bs-example" id="cartoon_detail"> 
   <div class="row">
   	<div class="col-lg-12">
     	<div class="panel panel-rank">
-          	<ul class="breadcrumb">
-			  <li><a href="/">首页</a></li>
-			  <li class="active"><%= @cartoon.title%></li>
-			</ul>
+          <ul class="breadcrumb">
+    			  <li><a href="/">首页</a></li>
+    			  <li class="active"><%= @cartoon.title%></li>
+    			</ul>
 
-          <div class="row app-list">
-          	<div class="col-lg-3"></div>
-	        <div class="col-lg-6">
-	        	<%= image_tag @cartoon.original_pic.url%>
-	        </div>
-
-	        <div class="col-lg-3" id="download_link">
-              <%= link_to (image_tag 'download_button.png'), download_cartoon_path(@cartoon)%>
-	        </div>
+          <div class="row">
+          	<div class="col-lg-3">
+            </div>
+  	        <div class="col-lg-6 cartoon-img">
+              <h4 class="title"><%= @cartoon.title%></h4>
+              <div class="row page-action">
+                <%= raw show_pre_next_link(@curr_nav, @cartoon) %>
+              </div>
+              <div class="row">
+  	        	  <%= image_tag @cartoon.original_pic.url, class: "original-pic"%>
+              </div>
+              <div class="row page-action">
+                <%= raw show_pre_next_link(@curr_nav, @cartoon) %>
+              </div>
+              <div class="row comment-area">
+                <div class="col-lg-4">
+                    <div id="comment_title"><h4>评论</h4></div>
+                </div>
+              </div>
+              <div class="row comment-cartoon">
+                <%= render 'shared/comment'%>
+              </div>
+  	        </div>
+            <div class="col-lg-3">
+            </div>
+  	      <!--   <div class="col-lg-3" id="download_link">
+                <%= link_to (image_tag 'download_button.png'), download_cartoon_path(@cartoon)%>
+  	        </div> -->
           </div>           
     	</div>
     </div> 

@@ -8,19 +8,19 @@
   <meta name="author" content="Connotive Cartoon">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tags unless @page_cached %>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
-    <script src="../assets/js/html5shiv.js"></script>
-    <script src="../assets/js/respond.min.js"></script>
+    <%= javascript_include_tag "html5shiv" %>
+    <%= javascript_include_tag "respond" %>
   <![endif]-->
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/comic.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/comic.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/comic.png">
+  <link rel="apple-touch-icon-precomposed" href="/assets/comic.png">
+  <link rel="shortcut icon" href="/assets/comic.png">
 </head>  
 <script type="text/javascript">
   var _gaq = _gaq || [];
@@ -34,40 +34,9 @@
 </script>
 <body>
 	<!-- Docs master nav -->
-	    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
-	  <div class="container">
-	    <a href="/" class="navbar-brand">挖东西</a>
-	    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	      <span class="icon-bar"></span>
-	    </button>
-	    <div class="nav-collapse collapse bs-navbar-collapse">
-	    	<%= render 'shared/nav'%>
-	      <ul class="nav navbar-nav pull-right">
-	      	<% if user_signed_in? %>
-	      	  <li>
-	      	  	<%if current_user.try(:admin?)%>
-	          		<a href="/admin/cartoons/list">管理</a>
-	          	<%else%>
-	          		<%= link_to current_user.username, show_user_path(current_user.username)%>
-	          	<%end%>
-	          </li>
-			  <li>
-			  <%= link_to('退出', destroy_user_session_path, :method => :delete) %>        
-			  </li>
-			<% else %>
-			  <li>
-			  <%= link_to('登录', new_user_session_path)  %>  
-			  </li>
-			  <li>
-			  <%= link_to('注册', new_user_registration_path)  %>  
-			  </li>
-			<% end %>
-	      </ul>
-	    </div>
-	  </div>
-	</div>
+  <div id="head_nav">
+	  <%= render 'shared/header' unless @page_cached%>
+  </div>
 	<%= yield %>
 
 </body>

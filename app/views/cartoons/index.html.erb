@@ -32,12 +32,12 @@
 
 <div class="bs-example" id="cartoon_rank"> 
   <div class='row notice'>
-   <div class="col-lg-1"></div>
-  <div class="col-lg-10">
-    <% if flash[:notice]%>
-      <div class="row alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><%= flash[:notice] %></div>
-    <%end %>
-  </div>
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10" id="flash_msg">
+      <% if flash[:notice]%>
+        <div class="row alert alert-danger"><button type="button" class="close" data-dismiss="alert">×</button><%= flash[:notice] %></div>
+      <%end %>
+    </div>
    <div class="col-lg-1"></div>
 </div>
   <div class="row">
@@ -46,7 +46,7 @@
     	<div class="panel panel-rank">
           <div class="panel-heading"><%= @title%></div> 
           <%@cartoons.in_groups_of(4).each do |cartoon_group|%>
-            <div class="row app-list">
+            <div class="row cartoon-list">
               <%cartoon_group.compact.each do |cartoon|%>
                 <div class="col-lg-3">
                   <div class="thumbnail">

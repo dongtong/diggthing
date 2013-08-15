@@ -36,6 +36,7 @@ class Admin::CartoonsController < AdminController
   def import
     result = save_sexiaozu(params[:cartoon_tmp_id])
     if result
+      
       render json: {state: :success}.to_json
     else
       render json: {state: :failed}.to_json

@@ -34,10 +34,19 @@ $(function(){
 			duration:0
 		});
 	});
+    //Cartoon List
+    if ($('.cartoon-list div').length) {
+    	$.getScript('/cartoons/check/list')
+    }
+    //Cartoon detail
+    //expire fragment cache dynamic show
+    if($('.cartoon-original-pic').length > 0){
+    	$.getScript('/cartoons/check/'+$('#cartoon_id').val().split('?')[0])
+    }
 
 	var comment_tmpl = '<div class="panel"><div class="comment-header"><h5>{{username}}说:</h5></div><div class="comment-body">{{content}}</div></div>';
 
-	$('#add_comment').click(function(e){
+	$('#cartoon_detail').delegate('#add_comment','click', function(e){
 		e.preventDefault();
 		var form = $(this).parent();
 	    $.ajax({

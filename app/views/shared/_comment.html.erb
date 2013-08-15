@@ -15,16 +15,7 @@
   <div class="panel-heading">
     <h4 class="panel-title">评论</h4>
   </div>
-  <%if user_signed_in?%>
-  <div class="comment-body">
-  	<%= form_for(Comment.new, :url => comments_create_path, :html => {:class => "form-horizontal"}) do |f| %>
-  	    <%= f.hidden_field :cartoon_id, value: @cartoon.id%>
-  	    <%= f.hidden_field :user_id, value: current_user.id%>
-  	    <%= f.text_area :content, class: "form-control col-lg-10", rows: 4%>
-  	    <%= f.submit "发表评论", :class => "btn btn-primary", :id => "add_comment"%>
-    <%end%>
+
+  <div class="comment-body" id="add_comment_area">
   </div>
-  <%else%>
-    <%=link_to "登录,说一说", new_user_session_path, class: "btn btn-primary"%>或者<%=link_to "免费注册", new_user_registration_path, class: "btn btn-success"%>
-  <%end%>
 </div>

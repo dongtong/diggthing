@@ -985,7 +985,7 @@ input.focused {
   padding: 0 0;
 }
 
-#cartoon_rank .app-list {
+#cartoon_rank .cartoon-list {
   border-bottom: 1px dashed #0088cc;
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -1135,6 +1135,9 @@ a.backToTop:hover{
 .comment-body {
   height: 130px;
 }
+/*.user-logged-in {
+  display: none;
+}*/
 #comments_list .bs-callout:first-child {
   margin-top: 0;
 }
@@ -1187,6 +1190,6 @@ a.backToTop:hover{
 #user_comments_list{
   padding: 0;
 }
- #user_comments {
+#user_comments {
   padding: 0;
- }
+}

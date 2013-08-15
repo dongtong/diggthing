@@ -1,10 +1,10 @@
 ConnotiveCartoon::Application.routes.draw do
-
+  match "cartoons/check/list" => "cartoons#check_list", :as => :check_cartoons, :via => :get
+  match "cartoons/check/:id" => "cartoons#check", :as => :check_cartoon, :via => :get
   match "user/:username" => "user#show", :as => :show_user, :via => :get
-
   get "user/edit"
-
   get "user/update"
+
 
   post "comments/create"
 

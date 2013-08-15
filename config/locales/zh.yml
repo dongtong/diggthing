@@ -63,3 +63,8 @@ zh:
     detail:
       pre: "上一页"
       next: "下一页"
+      comments:
+        add_comment_btn: "添加评论"
+        btn_login: "登录,说一说"
+        other: " 或者 "
+        btn_signin: "免费注册"

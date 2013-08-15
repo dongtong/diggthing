@@ -5,10 +5,12 @@ class ApplicationController < ActionController::Base
   private
 
   def after_sign_in_path_for(resource_or_scope)
+  	#session[:msg] = I18n.t('devise.sessions.signed_in')
   	root_path
   end
 
   def after_sign_out_path_for(resource_or_scope)
+  	#session[:msg] =  I18n.t('devise.sessions.signed_out')
   	root_path
   end
 

@@ -14,4 +14,5 @@ module CartoonsHelper
 		end
 		link_str
 	end
+
 end

@@ -1,0 +1,5 @@
+<%if user_signed_in?%>
+   $('#add_comment_area').html('<%= show_comment_form(@cartoon_id %>')
+<%else%>
+   $('#add_comment_area').html('<%= raw show_comment_login_info%>')
+<%end%>

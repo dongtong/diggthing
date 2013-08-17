@@ -1,4 +1,5 @@
 require 'will_paginate'
+require 'will_paginate/view_helpers/link_renderer' 
 
 module WillPaginate
   	module ViewHelpers

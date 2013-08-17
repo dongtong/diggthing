@@ -963,6 +963,7 @@ input.focused {
 
 .pagination > li > a,
 .pagination > li.current,
+.pagination > li.gap,
 .pagination > li > span {
   float: left;
   padding: 4px 12px;
@@ -1102,14 +1103,21 @@ input.focused {
   padding: 0;
   border-radius: 0;
 }
+#cartoon_list .panel-rank a {
+  font-size: 9pt;
+}
 #cartoon_list .panel-rank .panel-title {
     border: none;
     padding: 0 15px;
     text-align: center;
 }
+#cartoon_list .panel-rank .panel-title h4 {
+  margin: 0;
+}
 
 #cartoon_list .panel-rank .list-group-item {
   border-color: #d6d6d6;
+  padding: 10px;
 }
 
 #cartoon_list .col-lg-2 {

@@ -1,1 +1,1 @@
-$('#head_nav').html('<%= j render("shared/header")%>')
+$('#head_nav').html('<%= j render(:partial => "shared/header", :locals => {curr_item: @curr_nav})%>')

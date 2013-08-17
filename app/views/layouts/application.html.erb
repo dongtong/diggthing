@@ -35,9 +35,11 @@
 <body>
 	<!-- Docs master nav -->
   <div id="head_nav">
-	  <%= render 'shared/header' unless @page_cached%>
+    <%= hidden_field_tag :curr_nav, @curr_nav%>
+	  <%= render :partial => 'shared/header', :locals => {:curr_nav => @curr_nav, :curr_item =>  @curr_nav} unless @page_cached%>
   </div>
 	<%= yield %>
+  <%= render 'shared/footer'%>
 
 </body>
 </html>

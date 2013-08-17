@@ -2,7 +2,7 @@
 class Cartoon < ActiveRecord::Base
   extend ScrapWorm
   #attr_accessor :original_file_name
-  attr_accessible :cost_money, :download_number, :title, :thumb_pic, :original_pic
+  attr_accessible :category_id, :cost_money, :download_number, :title, :thumb_pic, :original_pic
   has_attached_file :thumb_pic, 
                     :content_type => { :content_type => ["image/jpg", "image/jpeg", "image/png"] },
                     :default_url => "/images/:style/missing.png",
@@ -18,7 +18,7 @@ class Cartoon < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
 
-  scope :lastest_cartoons, lambda {where("created_at > ?", 2.days.ago)}
+  scope :lastest_cartoons, lambda {where("created_at > ?", 1.days.ago)}
   
   def self.scrap_sexiaozu
     scrap_sexiaozu_res({

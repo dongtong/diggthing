@@ -1,11 +1,11 @@
 <ul class="nav navbar-nav">
-	<li class=<%= "active" if @curr_nav == 'all'%>>
-	    <a href="/">首页</a>
+	<li class=<%= "active" if active_item == 'all'%>>
+	    <a href="/cartoons/all/page/1">首页</a>
 	</li>
-	<li class=<%= "active" if @curr_nav == 'hot'%>>
-	    <a href="/cartoons/hot">热门</a>
+	<li class=<%= "active" if active_item == 'hot'%>>
+	    <a href="/cartoons/hot/page/1">热门</a>
 	</li>
-	<li class=<%= "active" if @curr_nav == 'lastest'%>>
-	    <a href="/cartoons/lastest">最新</a>
+	<li class=<%= "active" if active_item == 'lastest'%>>
+	    <a href="/cartoons/lastest/page/1">最新</a>
 	</li>	
 </ul>

@@ -1,3 +1,5 @@
+require 'ul_link_renderer'
+
 class ApplicationController < ActionController::Base
   include ScrapWorm
   protect_from_forgery

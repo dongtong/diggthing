@@ -1,4 +1,6 @@
 ConnotiveCartoon::Application.routes.draw do
+  get "cartoons/:nav/page/:page", to: 'cartoons#index'
+  
   match "cartoons/check/list" => "cartoons#check_list", :as => :check_cartoons, :via => :get
   match "cartoons/check/:id" => "cartoons#check", :as => :check_cartoon, :via => :get
   match "user/:username" => "user#show", :as => :show_user, :via => :get
@@ -14,8 +16,8 @@ ConnotiveCartoon::Application.routes.draw do
   get "cartoons/index"
   match "cartoons/:nav/show/:id" => "cartoons#show", :as => :show_cartoons, :via => :get
   match "cartoons/download/:id" => "cartoons#download", :as => :download_cartoon, :via => :get
-  match "cartoons/hot" => "cartoons#get_hot", :as => :get_hot_cartoons, :via => :get
-  match "cartoons/lastest" => "cartoons#get_lastest"
+  #match "cartoons/hot/page/:page" => "cartoons#get_hot", :as => :get_hot_cartoons, :via => :get
+  #match "cartoons/lastest" => "cartoons#get_lastest"
 
   namespace :admin do 
     get "cartoons/index"

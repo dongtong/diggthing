@@ -2,7 +2,7 @@
   <% @cartoon.comments.each do |comment|%>
     <div class="panel">
       <div class="comment-header">
-        <h5><%= comment.user.username%>说:</h5>
+        <h5><%= comment.user.username%> 说:</h5>
       </div>
       <div class="comment-body">
         <%= comment.content%>

@@ -7,7 +7,7 @@
 	      <span class="icon-bar"></span>
 	    </button>
 	    <div class="nav-collapse collapse bs-navbar-collapse">
-	    	<%= render 'shared/nav'%>
+	    	<%= render :partial => 'shared/nav', locals: {active_item: curr_item}%>
 	      <ul class="nav navbar-nav pull-right">
 	      	<% if user_signed_in? %>
 	      	  <li>

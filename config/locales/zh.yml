@@ -56,7 +56,27 @@ zh:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
 
+    
+  will_paginate:
+    previous_label: "&laquo;"
+    next_label: "&raquo;"
+    page_gap: "&hellip;"
+
+    page_entries_info:
+      single_page:
+      zero:  "No %{plural} found"
+      one:   "Displaying 1 %{name}"
+      other: "Displaying all %{count} %{plural}"
+      single_page_html:
+        zero:  "No %{plural} found"
+        one:   "Displaying <b>1</b> %{name}"
+        other: "Displaying <b>all&nbsp;%{count}</b> %{plural}"
+
+      multi_page: "Displaying %{plural} %{from} - %{to} of %{total} in total"
+      multi_page_html: "Displaying %{plural} <b class='range'>%{from}&nbsp;-&nbsp;%{to}</b> of <b class='total'>%{total}</b> in total"
+
   cartoons:
+    empty: "Oops, 目前还没有资源,请稍后重试!"
     all_cartoon_title: "漫画一览"
     hot_cartoon_title: "热门漫画"
     lastest_cartoon_title: "最新漫画"

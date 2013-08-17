@@ -1,12 +1,19 @@
 #-*- coding: utf-8 -*-
 class CartoonsController < ApplicationController
   caches_page :index, :get_hot, :get_lastest
+  before_filter(only: [:index, :get_hot, :get_lastest]) {@page_cached = true}
   cache_sweeper :cartoon_sweeper
 
   def index
-    @page_cached = true
-  	@cartoons = Cartoon.all
-    @curr_nav = 'all'
+    @curr_nav = params[:nav] || 'all'
+    case @curr_nav
+    when 'hot'
+      @cartoons = Cartoon.where('download_number >= ?', 11000).order("download_number desc").paginate(page: params[:page], per_page: 9)
+    when 'lastest'
+      @cartoons = Cartoon.lastest_cartoons.paginate(page: params[:page], per_page: 9)
+    else
+      @cartoons = Cartoon.paginate(page: params[:page], per_page: 9)
+    end
     @title = I18n.t("cartoons.all_cartoon_title")
     sleep 1 #for cache
   end
@@ -29,26 +36,11 @@ class CartoonsController < ApplicationController
   	end
   end
 
-  def get_hot
-    @page_cached = true
-    @curr_nav = 'hot'
-    @cartoons = Cartoon.order("download_number desc").take(10)
-    @title = I18n.t("cartoons.hot_cartoon_title")
-    render :index
-  end
-
-  def get_lastest
-    @page_cached = true
-    @curr_nav = 'lastest'
-    @cartoons = Cartoon.lastest_cartoons
-    @title = I18n.t("cartoons.lastest_cartoon_title")
-    render :index
-  end
-
   def check
     @cartoon_id = params[:id]
   end
 
   def check_list
+    @curr_nav = params[:nav]
   end
 end

@@ -5,17 +5,6 @@ module WillPaginate
     # This class does the heavy lifting of actually building the pagination
     # links. It is used by +will_paginate+ helper internally.
 	    class LinkRenderer < LinkRendererBase
-	    	 # def to_html
-		     #    html = pagination.map do |item|
-		     #      item.is_a?(Fixnum) ?
-		     #        page_number(item) :
-		     #        send(item)
-		     #    end.join(@options[:link_separator])
-		        
-		     #    @options[:container] ? html_container(html) : html
-		     #  end
-
-
 	    	protected
 
 	    	def gap

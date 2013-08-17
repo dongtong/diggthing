@@ -1,4 +1,4 @@
-require 'ul_link_renderer'
+#require 'ul_link_renderer'
 
 class ApplicationController < ActionController::Base
   include ScrapWorm

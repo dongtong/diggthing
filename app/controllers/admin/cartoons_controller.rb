@@ -28,8 +28,11 @@ class Admin::CartoonsController < AdminController
   end
 
   def destroy
-    @cartoon = Cartoon.find(params[:id])
-    @cartoon.destroy
+    Cartoon.transaction do
+      @cartoon = Cartoon.find(params[:id])
+      tmp_cartoon = CartoonTmp.where("title like ?", "%#{@cartoon.title}%").first
+      tmp_cartoon && tmp_cartoon.update_attributes({scraped: false}) && @cartoon.destroy
+    end
     redirect_to admin_cartoons_index_url
   end
 

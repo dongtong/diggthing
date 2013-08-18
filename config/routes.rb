@@ -1,5 +1,7 @@
 ConnotiveCartoon::Application.routes.draw do
 
+  get "/about", to: 'about#index'
+
   get "cartoons/:nav/page/:page", to: 'cartoons#index'
   
   match "cartoons/check/list" => "cartoons#check_list", :as => :check_cartoons, :via => :get

@@ -1,0 +1,32 @@
+<div class="bs-example" id="category_res"> 
+<div class="row app-list">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>添加分类</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span><%= link_to "返回", admin_categories_list_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+			          
+			<div class="row app-list">
+			    <%= form_for(@category, :url => admin_categories_create_path, :html => {:class => "form-horizontal"}) do |f| %>
+
+					<div class="form-group">
+						<label for="name" class="col-lg-2 control-label">名称</label>
+						<div class="col-lg-10">
+						<%= f.text_field :name, :autofocus => true,  :class => "form-control", :placeholder => "名称" %>
+						<%= f.submit "添加", :class => "btn btn-primary", :id => "add_category"%>
+						</div>
+					</div>	
+				<% end %>
+			</div> 
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
+</div>

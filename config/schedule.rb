@@ -12,6 +12,10 @@ every 1.minute do
 	runner "Cartoon.scrap_sexiaozu"
 end
 
+every 2.minutes do
+	runner "Cartoon.scrap_sexi"
+end
+
 # every :sunday, at: "4:28 AM" do
 # 	#runner "Cart.clear_abandoned"
 # end

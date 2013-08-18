@@ -11,16 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130815163427) do
+ActiveRecord::Schema.define(:version => 20130818065217) do
+
+  create_table "apps", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "apk_file_name"
+    t.string   "apk_content_type"
+    t.integer  "apk_file_size"
+    t.datetime "apk_updated_at"
+  end
 
   create_table "cartoon_tmps", :force => true do |t|
     t.string   "title"
     t.string   "thumb_pic_url"
     t.string   "details_url"
     t.boolean  "scraped"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "scrap_page"
+    t.integer  "scrap_source_id"
   end
 
   create_table "cartoons", :force => true do |t|
@@ -41,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20130815163427) do
     t.integer  "show_times"
     t.integer  "download_times"
     t.integer  "page_in"
-    t.integer  "category_id"
+    t.integer  "scrap_source_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -65,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130815163427) do
     t.integer  "curr_page"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "category_id"
   end
 
   create_table "users", :force => true do |t|

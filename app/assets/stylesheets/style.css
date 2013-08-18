@@ -48,6 +48,9 @@ body {
   padding-left: 0;
   font-size: 20px;
 }
+.bs-docs-nav .navbar-brand:hover {
+  color: #333;
+}
 
 .bs-docs-nav .navbar-nav > li > a {
   font-size: 16px;
@@ -1051,11 +1054,31 @@ input.focused {
   margin: 0;
 }
 
-/* Cross App */
+/* Cartoon Home */
+#top_slider {
+  /*background-color: #82aad3;*/
+  border-bottom: none;
+}
+#top_slider .bs-example {
+  padding: 5px;
+  background-color: #efefef;
+  border-radius: 0
+}
+
+#top_slider .bs-example a {
+  font-size: 16px;
+}
+
+#top_slider div.col-lg-8 {
+  padding: 0 10px 0 16px;
+
+}
 #app_carousel div.carousel .item {
   text-align: center;
 }
-
+#slide_items>.item {
+  text-align: center;
+}
 #cartoon_list .list-group-item {
   border-left: none;
   border-right: none;
@@ -1078,47 +1101,65 @@ input.focused {
   background-image: linear-gradient(to right,rgba(202,190,224,0.5) 0,rgba(202,190,224,0.0001) 100%);
 }
 
-
+#cartoon_content {
+  padding: 0 5px 0 0;
+}
 
 #cartoon_list .panel-content {
   /*border-color: #0088cc;*/
-  border-top: none;
+/*  border-top: none;
   border-left: none;
   border-bottom: none;
-  border-right: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;*/
   background-color: #fafafa;
-  border-radius: 0;
-  padding-top: 0;
+  border: none;
+  /*border-radius: 0;*/
   box-shadow: none;
   margin-bottom: 0;
+  /*padding: 0 10px;*/
+  padding-top: 0;
   padding-bottom: 0;
 }
 
-/*#cartoon_list .cartoon-list .even {
-  border-left: 1px solid #d6d6d6;
-  border-right: 1px solid #d6d6d6;
-}*/
+#cartoon_list .cartoon-list .even, #cartoon_list .cartoon-list .odd{
+  padding: 0 5px;
+}
 
 #cartoon_list .panel-rank {
   padding: 0;
   border-radius: 0;
+}
+#cartoon_list .panel-rank h4 {
+  font-size: 16px;
 }
 #cartoon_list .panel-rank a {
   font-size: 9pt;
 }
 #cartoon_list .panel-rank .panel-title {
     border: none;
-    padding: 0 15px;
+    padding: 10px 15px;
     text-align: center;
 }
 #cartoon_list .panel-rank .panel-title h4 {
   margin: 0;
 }
-
-#cartoon_list .panel-rank .list-group-item {
-  border-color: #d6d6d6;
-  padding: 10px;
+#cartoon_list .list-group {
+  margin: 0;
 }
+#cartoon_list .list-group-item {
+  border-color: #d6d6d6;
+  padding: 8px;
+  width: 100%;
+  text-overflow:ellipsis; 
+  white-space:nowrap; 
+  overflow:hidden;
+}
+
+#cartoon_list .panel-rank .list-group-item a {
+
+}
+
+
 
 #cartoon_list .col-lg-2 {
   padding: 0
@@ -1403,7 +1444,11 @@ a.backToTop:hover{
 #footer .list-group span, #footer .list-group a {
   border: none;
   padding: 10px 0 10px 15px;
-  width: 55%;
+  /*width: 55%;*/
+  color: #FFFFFF;
+}
+#footer .list-group a {
+  font-size: 18px;
 }
 #footer #last-col a{
   width: 75px;

@@ -7,8 +7,6 @@
 //= require mustache
 
 $(function(){
-	// $('<a href="javascript:;" class="backToTop" title="返回顶部">返回顶部</a>').appendTo("body");
-
 	$('.bs-docs-carousel-example').carousel();
 
 	$('button.import').click(function(e){
@@ -34,6 +32,28 @@ $(function(){
 			duration:0
 		});
 	});
+	//Download APK
+	$('#download_apk').click(function(e){
+		e.preventDefault();
+		$.ajax({
+	      url: '/download/apk',
+	      beforeSend: function(xhr) {
+	        xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+	      },
+	      method: 'POST',
+	    }).done(function(){
+	  
+	    }).fail(function(){
+	   
+	    });
+		return false;
+	})
+	//Cartoon Rank
+	$('#cartoon_rank').tooltip({
+      selector: "[data-toggle=tooltip]",
+      container: "#cartoon_rank"
+    });
+    
     //Cartoon List
     if ($('#cartoon_list').length) {
     	$.getScript('/cartoons/check/list?nav='+$('#curr_nav').val())

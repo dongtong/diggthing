@@ -1,0 +1,41 @@
+<div class="bs-example" id="category_res"> 
+<div class="row">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>分类一览</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span class="pull-right"><%= link_to_icon "add", admin_categories_new_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+
+			<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>序号</th>
+		            <th>名称</th>
+		            <th></th>
+		            <th></th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		         <%@categories.each_with_index do |category, index|%>
+		         	<tr>
+			            <td><%= index + 1%></td>
+			            <td><%= category.name %></th>
+			            <td><%= link_to_icon "edit", admin_categories_edit_path(category)%></th>
+			            <td><%= link_to_icon "delete", admin_categories_destroy_path(category), method: :delete, data: { confirm: '确定删除吗?, 这将会删除相关联的漫画' }%></th>
+
+		          	</tr>
+		         <%end%>
+		        </tbody>
+		    </table>
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
+</div>

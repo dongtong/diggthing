@@ -1,4 +1,5 @@
 ConnotiveCartoon::Application.routes.draw do
+
   get "cartoons/:nav/page/:page", to: 'cartoons#index'
   
   match "cartoons/check/list" => "cartoons#check_list", :as => :check_cartoons, :via => :get
@@ -16,10 +17,27 @@ ConnotiveCartoon::Application.routes.draw do
   get "cartoons/index"
   match "cartoons/:nav/show/:id" => "cartoons#show", :as => :show_cartoons, :via => :get
   match "cartoons/download/:id" => "cartoons#download", :as => :download_cartoon, :via => :get
+  get "/download/apk", to: "cartoons#download_apk", :as => :download_apk
   #match "cartoons/hot/page/:page" => "cartoons#get_hot", :as => :get_hot_cartoons, :via => :get
   #match "cartoons/lastest" => "cartoons#get_lastest"
 
   namespace :admin do 
+    get "system/index"
+    get "system/show_upload_apk"
+    post "system/upload_apk"
+    get "system/edit_apk/:id", to: 'system#edit_apk', :as => :system_edit_apk
+    put "system/update_apk/:id", to: 'system#update_apk', :as => :system_update_apk
+
+
+    get "categories/list"
+    get "categories/new"
+    # get "categories/show"
+    post "categories/create"
+    get "categories/edit/:id", to: "categories#edit", :as => "categories_edit"
+    put "categories/update/:id", to: "categories#update", :as => "categories_update"
+    #delete "categories/destroy/"
+    delete "categories/destroy/:id", to: "categories#destroy", :as => "categories_destroy"
+
     get "cartoons/index"
     get "cartoons/list"
     get "cartoons/new"

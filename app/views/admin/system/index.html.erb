@@ -1,0 +1,39 @@
+<div class="bs-example" id="category_res"> 
+<div class="row">
+	<div class="col-lg-2"></div>
+	<div class="col-lg-8">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>APK版本一览</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span class="pull-right"><%= link_to_icon "add", admin_system_show_upload_apk_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+
+			<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>序号</th>
+		            <th>日期</th>
+		            <th></th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		         <%@apps.each_with_index do |app, index|%>
+		         	<tr>
+			            <td><%= index + 1%></td>
+			            <td><%= app.created_at %></th>
+			            <td><%= link_to_icon "edit", admin_system_edit_apk_path(app)%></th>
+
+		          	</tr>
+		         <%end%>
+		        </tbody>
+		    </table>
+		</div>
+	</div>
+	<div class="col-lg-2"></div>
+</div>
+</div>

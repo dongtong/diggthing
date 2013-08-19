@@ -39,11 +39,4 @@ class Cartoon < ActiveRecord::Base
     })
   end
 
-  def self.clean_cartoon
-    CartoonTmp.where('scraped=?', true).each do |tmp|
-      unless Cartoon.where("title = ?", generate_title(tmp.title)).present?
-        save_sexiaozu(tmp.id)
-      end
-    end
-  end
 end

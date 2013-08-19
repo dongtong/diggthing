@@ -46,7 +46,6 @@ class CartoonsController < ApplicationController
       send_file("#{Rails.root}/public#{@app.apk.url.split('?')[0]}", filename: "#{@app.name}.apk",
               type: @app.apk_content_type, :disposition => :attachment)
     rescue => ex
-      puts "$$$$$$$ #{ex.inspect}"
       flash[:notice] = "APK不存在"
       redirect_to root_path
     end

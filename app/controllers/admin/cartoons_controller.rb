@@ -4,7 +4,7 @@ class Admin::CartoonsController < AdminController
   
   def list
     @curr_nav = "cartoons_scraped"
-    @cartoons = CartoonTmp.paginate(page: params[:page], per_page: 10)
+    @cartoons = CartoonTmp.order('id asc, scraped desc').paginate(page: params[:page], per_page: 10)
   end
 
   def index

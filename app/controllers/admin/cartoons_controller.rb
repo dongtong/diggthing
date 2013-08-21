@@ -47,7 +47,7 @@ class Admin::CartoonsController < AdminController
   end
 
   def get_cartoons_list
-    @cartoons = Cartoon.paginate(:page => params[:page], :per_page => params[:per_page])
+    @cartoons = Cartoon.order("created_at desc").paginate(:page => params[:page], :per_page => params[:per_page])
     records = @cartoons.map{|cartoon| {
         bookId: cartoon.id,
         title: cartoon.title,

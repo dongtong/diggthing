@@ -12,7 +12,7 @@ class CartoonsController < ApplicationController
     when 'lastest'
       @cartoons = Cartoon.lastest_cartoons.paginate(page: params[:page], per_page: 9)
     else
-      @cartoons = Cartoon.paginate(page: params[:page], per_page: 9)
+      @cartoons = Cartoon.order("created_at desc").paginate(page: params[:page], per_page: 9)
     end
     @title = I18n.t("cartoons.all_cartoon_title")
     sleep 1 #for cache

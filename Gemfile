@@ -13,7 +13,9 @@ gem 'will_paginate'
 gem 'thin'
 gem 'whenever', require: false
 
-
+group :development do
+	gem 'mailcatcher'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

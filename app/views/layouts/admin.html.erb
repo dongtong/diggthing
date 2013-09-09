@@ -7,7 +7,7 @@
   <meta name="description" content="Cartoon, Sexy">
   <meta name="author" content="Connotive Cartoon">
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "backend" %>
   <%= csrf_meta_tags %>
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -45,6 +45,9 @@
 	        </li>
 	        <li class="<%= "active" if @curr_nav == "category"%>">
 	          <a href="/admin/categories/list">分类</a>
+	        </li>
+	        <li class="<%= "active" if @curr_nav == "books"%>">
+	          <a href="/admin/books/list">电子书</a>
 	        </li>
 	         <li class="<%= "active" if @curr_nav == "system"%>">
 	          <a href="/admin/system/index">系统</a>

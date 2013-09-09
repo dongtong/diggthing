@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 class Admin::CategoriesController < AdminController
+  before_filter :authenticate_user!
   def list
     @curr_nav == "category"
     @categories = Category.all

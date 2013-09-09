@@ -9,4 +9,14 @@ class CommentsController < ApplicationController
   		render json: {state: :failed, msg: "添加评论失败,评论内容不能为空!"}
   	end
   end
+
+  def add_book_comment
+  	book = Book.find(params[:comment][:book_id])
+  	comment = book.comments.build(params[:comment])
+  	if comment.save
+  		render json: {state: :success, msg: {username: current_user.username, content: comment.content}}
+  	else
+  		render json: {state: :failed, msg: "添加评论失败,评论内容不能为空!"}
+  	end
+  end
 end

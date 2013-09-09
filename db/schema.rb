@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828135448) do
+ActiveRecord::Schema.define(:version => 20130908131611) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,27 @@ ActiveRecord::Schema.define(:version => 20130828135448) do
     t.string   "apk_content_type"
     t.integer  "apk_file_size"
     t.datetime "apk_updated_at"
+  end
+
+  create_table "books", :force => true do |t|
+    t.string   "name"
+    t.string   "author"
+    t.string   "publisher"
+    t.datetime "published_at"
+    t.integer  "book_coin"
+    t.boolean  "published"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.string   "isbn"
+    t.text     "contents"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "cartoon_tmps", :force => true do |t|
@@ -67,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20130828135448) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "book_id"
   end
 
   create_table "scrap_sources", :force => true do |t|

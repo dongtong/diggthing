@@ -3,7 +3,6 @@ class CartoonsController < ApplicationController
   caches_page :index, :get_hot, :get_lastest
   before_filter(only: [:index, :get_hot, :get_lastest]) {@page_cached = true}
   cache_sweeper :cartoon_sweeper
-
   def index
     @curr_nav = params[:nav].blank? ? 'all' : params[:nav]
     case @curr_nav

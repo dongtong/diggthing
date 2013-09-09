@@ -239,6 +239,12 @@ body {
   display: none; /* hide what I assume are tracking images */
 }
 
+#head_nav .navbar {
+  min-height: 40px;
+}
+#head_nav a {
+  padding: 10px 15px;
+}
 
 
 /* Docs sidebar
@@ -1318,7 +1324,7 @@ a.backToTop:hover{
 }
 
 /*Detail Page*/
-#cartoon_detail .cartoon-original-pic {
+#detail .cartoon-original-pic, #book_detail div.book_contents {
   padding-bottom: 15px;
   border-bottom: 5px solid #428bca;
 }
@@ -1349,10 +1355,10 @@ a.backToTop:hover{
 #comments_list .bs-callout:first-child {
   margin-top: 0;
 }
-#cartoon_detail .panel {
+#detail .panel {
   border-radius: 0;
 }
-#cartoon_detail .panel-content {
+#detail .panel-content {
   border-radius: 0;
 /*  border-top: 1px solid #d6d6d6;
   border-left: none;
@@ -1363,10 +1369,10 @@ a.backToTop:hover{
   border-radius: 0;
   padding-top: 0;
 }
-#cartoon_detail .panel-content .first-col, #cartoon_detail .panel-content .last-col {
+#detail .panel-content .first-col, #detail .panel-content .last-col {
   border-top: 1px solid #d6d6d6;
 }
-#cartoon_detail .panel-content .bc {
+#detail .panel-content .bc {
   padding: 0;
   border-radius: 0;
   border-top: 1px solid #fafafa;
@@ -1375,10 +1381,10 @@ a.backToTop:hover{
   border-left: 1px solid #d6d6d6;
   font-size: 16px;
 }
-#cartoon_detail .breadcrumb {
+#detail .breadcrumb {
    background-color: #fafafa;
 }
-#cartoon_detail .panel-content .bc ul {
+#detail .panel-content .bc ul {
   margin-bottom: 0;
 }
 
@@ -1407,7 +1413,7 @@ a.backToTop:hover{
   margin-top: 5px;
   float: right;
 }
-#cartoon_detail .original-pic {
+#detail .original-pic {
   width: 100%;
   height: 100%;
 }
@@ -1435,7 +1441,7 @@ a.backToTop:hover{
 #footer {
   border-radius: 0;
   padding-top: 20px;
-  background-color: #454545;
+  background-color: #2E3137;
 }
 #footer #first-col, #footer #second-col, #footer #last-col{
   padding-left: 0;
@@ -1466,4 +1472,16 @@ a.backToTop:hover{
   padding: 10px 30px 10px 15px;
   margin-bottom: -1px;
   color: #FFFFFF;
+}
+
+/*Book*/
+#book_content .book-item .thumbnail {
+  text-align: center;
+}
+.book-info {
+  font-size: 9pt;
+  text-align: left;
+}
+#book_content .author{
+  padding-left: 24px;
 }

@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg-2"></div>
+  	<div class="col-lg-8" id="book_content">
+  		<div class="row">
+	  		<%@books.each do |book|%>
+	  			<div class="col-sm-3 col-md-3 book-item">
+	  				<div class="thumbnail">
+                        <%= link_to (image_tag book.cover.url),   books_show_path(book.id), class: 'book-cover'%>
+                        <div class="caption">
+			              	<h5><%= link_to book.name, books_show_path(book.id)%></h5>
+			              	<div class="book-info">
+			              		<div>
+			              			<span class="author">作者</span>
+			              			<span>by Obie Fernandez</span>
+			              		</div>
+			              		<div>
+			              			<span class="published-at">出版时间</span>
+			              			<span>by Obie Fernandez</span>
+			              		</div>
+			          		</div>
+			            </div>
+                    </div>
+	  			</div>
+	  		<%end%>
+  		</div>
+
+       
+        <div class="row pagination-panel">
+            <%= will_paginate @books, :params => {:nav => @curr_nav}%>
+        </div>
+    </div> <!--col-lg-9-->   
+    <div class="col-lg-2"></div> 
+  </div>

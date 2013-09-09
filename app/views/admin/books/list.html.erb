@@ -1,0 +1,46 @@
+<div class="bs-example" id="category_res"> 
+<div class="row">
+	<div class="col-lg-1"></div>
+	<div class="col-lg-10">
+		<div class="panel panel-rank">
+			<div class="panel-heading">
+			    <div>图书一览</div>
+			</div> 
+			
+			<div class="panel-action">
+			    <div class="navbar">
+					<span class="pull-right"><%= link_to_icon "add", admin_books_new_path, :class => 'navbar-link'%></span>
+				</div>
+			</div> 
+
+			<table class="table table-striped">
+		        <thead>
+		          <tr>
+		            <th>序号</th>
+		            <th>名称</th>
+		            <th>出版时间</th>
+		            <th>书币</th>
+		            <th>发布</th>
+		            <th></th>
+		            <th></th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        <%@books.each_with_index do |book, index|%>
+		         	<tr>
+			            <td><%= index + 1%></td>
+			            <td><%= book.name %></td>
+			           	<td><%= book.published_at %></td>
+						<td><%= book.book_coin %></td>
+						<td><%= book.published %></td>
+			            <td><%= link_to_icon "edit", admin_edit_book_path(book)%></td>
+			            <td><%= link_to_icon "delete", admin_books_destroy_path(book), method: :delete, data: { confirm: '确定删除吗?' }%></td>
+		          	</tr>
+		        <%end%>
+		        </tbody>
+		    </table>
+		</div>
+	</div>
+	<div class="col-lg-1"></div>
+</div>
+</div>

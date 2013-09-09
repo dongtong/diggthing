@@ -1,5 +1,6 @@
 ConnotiveCartoon::Application.routes.draw do
-
+  get "books/index"
+  match "books/show/:id" => 'books#show', :as => :books_show, :via => :get
   get "/about", to: 'about#index'
 
   get "cartoons/:nav/page/:page", to: 'cartoons#index'
@@ -12,6 +13,7 @@ ConnotiveCartoon::Application.routes.draw do
 
 
   post "comments/create"
+  post "comments/add_book_comment"
 
   devise_for :users
 
@@ -58,6 +60,14 @@ ConnotiveCartoon::Application.routes.draw do
     match "scrap_sources/edit/:id" => "scrap_sources#edit", :as => :edit_scrap_source, :via => :get
     match "scrap_sources/update/:id" => "scrap_sources#update", :as => :update_scrap_source, :via => :put
     match "scrap_sources/destroy/:id" => "scrap_sources#destroy", :as => :destroy_scrap_source, :via => :delete
+  
+    get "books/list"
+    get "books/new"
+    match "books/create" => "books#create", :via => :post
+    match "books/edit/:id" => "books#edit", :as => :edit_book, :via => :get
+    match "books/update/:id" => "books#update", :as => :update_book, :via => :put
+    match "books/destroy/:id" => "books#destroy", :as => :books_destroy, :via => :delete
+
   end
   
 

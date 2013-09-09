@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 class Admin::SystemController < AdminController
+  before_filter :authenticate_user!
   before_filter(only: [:index, :show_upload_apk]) {@curr_nav = 'system'}
   def index
   	@apps = App.all

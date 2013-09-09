@@ -1,4 +1,4 @@
-<div class="bs-example" id="cartoon_detail"> 
+<div class="bs-example" id="detail"> 
   <div class="row">
     <%= hidden_field_tag :cartoon_id, @cartoon.id%>
   	<div class="col-lg-12">
@@ -31,7 +31,7 @@
                   </div>
                 </div>
                 <div class="row comment-cartoon">
-                  <%= render 'shared/comment'%>
+                  <%= render :partial => 'shared/comment', :locals => {:comment_obj => @cartoon}%>
                 </div>
     	        </div>
               <div class="col-lg-3">

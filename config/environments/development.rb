@@ -47,6 +47,6 @@ ConnotiveCartoon::Application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "diggthing@gmail.com",
-    password: "TODO"
+    password: "52Diggthing"
   }
 end

@@ -40,7 +40,7 @@
 					<div class="form-group">
 						<label for="name" class="col-lg-2 control-label">出版时间</label>
 						<div class="col-lg-10">
-						<%= f.text_field :published_at, :class => "form-control", :placeholder => "出版时间" %>
+						<%= f.date_select :published_at, :include_blank => true%>
 						</div>
 					</div>
 

@@ -45,6 +45,13 @@
 					</div>
 
 					<div class="form-group">
+						<label for="name" class="col-lg-2 control-label">下载链接</label>
+						<div class="col-lg-10">
+						<%= f.text_field :download_link, :class => "form-control", :placeholder => "下载链接" %>
+						</div>
+					</div>
+
+					<div class="form-group">
 						<label for="name" class="col-lg-2 control-label">书币</label>
 						<div class="col-lg-10">
 						<%= f.text_field :book_coin, :class => "form-control", :placeholder => "书币" %>

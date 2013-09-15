@@ -52,6 +52,11 @@ $(function(){
       selector: "[data-toggle=tooltip]",
       container: "#cartoon_rank"
     });
+    $('.book-item').tooltip({
+      selector: "[data-toggle=tooltip]",
+      container: ".book-item"
+    });
+
     
     //Cartoon List
     if ($('#cartoon_list').length) {

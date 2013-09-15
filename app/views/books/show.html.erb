@@ -17,8 +17,11 @@
             	<div class="col-lg-3">
               </div>
     	        <div class="col-lg-6 cartoon-img">
-	                <div class="row book_contents">
+    	        	<div class="row book_contents">
 	    	        	  <%= raw @book.contents%>
+	                </div>
+	                <div class="row book_contents">
+	    	        	  <%=link_to "下载", @book.download_link, target: "_blank", class: "btn btn-info"%>
 	                </div>
 	                <div class="row comment-area">
 	                  <div class="col-lg-4">

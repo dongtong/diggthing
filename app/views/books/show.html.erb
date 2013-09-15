@@ -48,11 +48,15 @@
 						  </div>
 
 						  <div class="comment-body" id="add_comment_area">
-						  	<%= form_for(Comment.new, :url => comments_add_book_comment_path, :html => {:class => "form-horizontal"}) do |f| %>
-							        <%= f.hidden_field :book_id, value: @book.id %>
-							        <%= f.hidden_field :user_id, value: current_user.id%>
-							        <%= f.text_area :content, class: "form-control col-lg-10", rows: 4%>
-							        <%= f.submit "发表评论", :class => "btn btn-primary", :id => "add_comment"%>
+						  	<%if user_signed_in? %>
+							  	<%= form_for(Comment.new, :url => comments_add_book_comment_path, :html => {:class => "form-horizontal"}) do |f| %>
+								        <%= f.hidden_field :book_id, value: @book.id %>
+								        <%= f.hidden_field :user_id, value: current_user.id%>
+								        <%= f.text_area :content, class: "form-control col-lg-10", rows: 4%>
+								        <%= f.submit "发表评论", :class => "btn btn-primary", :id => "add_comment"%>
+								<%end%>
+							<%else%>
+								<%= raw show_comment_login_info %>
 							<%end%>
 						  </div>
 						</div>

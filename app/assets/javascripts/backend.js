@@ -43,4 +43,10 @@ $(function(){
 	    "html": true,
 	    "color": true
 	});
+
+	
+	$('#section_content').wysihtml5({
+	    "html": true,
+	    "color": true
+	});
 })

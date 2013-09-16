@@ -23,6 +23,7 @@
 		            <th>发布</th>
 		            <th></th>
 		            <th></th>
+		            <th></th>
 		          </tr>
 		        </thead>
 		        <tbody>
@@ -33,6 +34,7 @@
 			           	<td><%= book.published_at %></td>
 						<td><%= book.book_coin %></td>
 						<td><%= book.published %></td>
+						<td><%= link_to "章节", admin_book_sections_path(book)%></td>
 			            <td><%= link_to_icon "edit", admin_edit_book_path(book)%></td>
 			            <td><%= link_to_icon "delete", admin_books_destroy_path(book), method: :delete, data: { confirm: '确定删除吗?' }%></td>
 		          	</tr>

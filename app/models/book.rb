@@ -9,4 +9,5 @@ class Book < ActiveRecord::Base
                     :path => ":rails_root/public/books/:id/:basename.:extension" 
                     
   has_many :comments
+  has_many :sections
 end

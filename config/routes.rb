@@ -1,4 +1,6 @@
 ConnotiveCartoon::Application.routes.draw do
+
+
   get "books/index"
   match "books/show/:id" => 'books#show', :as => :books_show, :via => :get
   get "/about", to: 'about#index'
@@ -67,6 +69,14 @@ ConnotiveCartoon::Application.routes.draw do
     match "books/edit/:id" => "books#edit", :as => :edit_book, :via => :get
     match "books/update/:id" => "books#update", :as => :update_book, :via => :put
     match "books/destroy/:id" => "books#destroy", :as => :books_destroy, :via => :delete
+
+    get "books/:book_id/sections/index" => "sections#index", :as => :book_sections
+    get "books/:book_id/sections/new" => "sections#new", :as => :new_book_section
+    get "books/:book_id/sections/show/:id" => "sections#show",:as => :show_book_section
+    match "books/:book_id/sections/create" => "sections#create", :as => :create_book_section, :via => :post
+    match "books/:book_id/sections/edit/:id" => "sections#edit", :as => :edit_book_section, :via => :get
+    match "books/:book_id/sections/update/:id" => "sections#update", :as => :update_book_section, :via => :put
+    match "books/:book_id/sections/destroy/:id" => "section#destroy", :as => :destroy_book_section, :via => :delete
 
   end
   
